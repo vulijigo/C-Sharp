@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AgeBorn
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("what is your age?");
+            int age = Convert.ToInt32(Console.ReadLine());
+            int year = 2019 - age;
+
+            try
+            {
+                if (age < 0 | age > 120)
+                    throw new ArgumentException();
+                else Console.WriteLine("your age is {0}", year);
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine("thats not your age! " + e.GetType());
+                Console.ReadLine();
+                
+            }
+            catch (InvalidCastException)
+            {
+                Console.WriteLine("Invalid.");
+            }
+                      
+            Console.Read();
+        }
+    }
+}
